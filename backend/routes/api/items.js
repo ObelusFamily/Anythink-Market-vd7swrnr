@@ -40,6 +40,11 @@ router.get("/", auth.optional, function(req, res, next) {
   var query = {};
   var limit = 100;
   var offset = 0;
+  var title = ""
+
+  if (typeof req.query.title !== "undefined") {
+    query.title = req.query.title
+  }
 
   if (typeof req.query.limit !== "undefined") {
     limit = req.query.limit;
